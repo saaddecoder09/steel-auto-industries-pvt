@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Steel Auto Industries | Professional Manufacturing since 1984</title>
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --accent: #e67e22;
+            --light: #f4f7f6;
+            --dark: #1a252f;
+            --transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, sans-serif;
+            margin: 0;
+            background-color: var(--light);
+            color: var(--dark);
+        }
+
+        /* --- Header & Hero --- */
+        header {
+            background: var(--primary);
+            color: white;
+            padding: 1.5rem 5%;
+            text-align: center;
+            border-bottom: 4px solid var(--accent);
+        }
+
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=1200&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        .container { width: 90%; max-width: 1100px; margin: auto; padding: 40px 0; }
+
+        /* --- Product Grid --- */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .product-card {
+            background: white;
+            padding: 40px 20px;
+            border-radius: 8px;
+            text-align: center;
+            cursor: pointer;
+            transition: var(--transition);
+            border-bottom: 5px solid #ddd;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            border-bottom-color: var(--accent);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        /* --- Detail View (Slide Animation) --- */
+        #product-detail-view {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 100%;
+            height: 100%;
+            background: white;
+            z-index: 1000;
+            transition: var(--transition);
+            overflow-y: auto;
+        }
+
+        #product-detail-view.active { right: 0; }
+
+        .detail-content { padding: 60px 10%; max-width: 800px; margin: auto; }
+
+        .back-btn {
+            background: var(--primary);
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+            border-radius: 4px;
+            margin-bottom: 30px;
+        }
+
+        /* --- Technical Table --- */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: #fff;
+        }
+        table td { padding: 15px; border: 1px solid #eee; }
+        table td:first-child {
+            background: var(--primary);
+            color: white;
+            font-weight: bold;
+            width: 35%;
+        }
+
+        /* --- Footer --- */
+        footer {
+            background: var(--dark);
+            color: #bdc3c7;
+            padding: 50px 5%;
+            margin-top: 50px;
+        }
+
+        .footer-link { color: var(--accent); text-decoration: none; font-weight: bold; }
+        .footer-link:hover { text-decoration: underline; }
+        
+        .gst-text { color: var(--accent); font-weight: bold; letter-spacing: 1px; }
+
+        .contact-box {
+            background: #f0f0f0;
+            padding: 25px;
+            border-radius: 8px;
+            margin-top: 30px;
+            border-left: 5px solid var(--accent);
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>STEEL AUTO INDUSTRIES</h1>
+    <p>Professional Manufacturing Since 1984</p>
+</header>
+
+<section class="hero">
+    <h2>Quality Steel Sections & Wire Products</h2>
+    <p>Serving industries worldwide from Faridabad for over 4 decades.</p>
+</section>
+
+<div class="container">
+    <h2 style="text-align:center; margin-bottom: 40px;">Our Manufacturing Portfolio</h2>
+    
+    
+
+    <div class="product-grid">
+        <div class="product-card" onclick="showProduct('Round')">
+            <h3>Round Section</h3>
+            <p>10mm to 50mm Range →</p>
+        </div>
+        <div class="product-card" onclick="showProduct('Hex')">
+            <h3>Hex Section</h3>
+            <p>Professional Hex Profiles →</p>
+        </div>
+        <div class="product-card" onclick="showProduct('Square')">
+            <h3>Square Section</h3>
+            <p>Structural Square Bars →</p>
+        </div>
+        <div class="product-card" onclick="showProduct('Wire')">
+            <h3>Wire Products</h3>
+            <p>Industrial Gauges →</p>
+        </div>
+        <div class="product-card" onclick="showProduct('Flat')">
+            <h3>Flat Section</h3>
+            <p>Standard & Special Flats →</p>
+        </div>
+        <div class="product-card" onclick="showProduct('Special Section')">
+            <h3>Special Sections</h3>
+            <p>Custom Engineering →</p>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 30px;">
+        <div>
+            <h3>Contact Details</h3>
+            <p><strong>Phone:</strong> <a href="tel:9871964555" class="footer-link">+91 9871964555</a></p>
+            <p><strong>Email:</strong> <a href="mailto:steelautoindustries@gmail.com" class="footer-link">steelautoindustries@gmail.com</a></p>
+            <p><strong>Address:</strong> Plot no. 606, Sector 58,<br>Plating Zone, Faridabad (HR) - 121004</p>
+        </div>
+        <div>
+            <h3>Business Registration</h3>
+            <p>GSTIN: <span class="gst-text">06AHNPA8077H1Z5</span></p>
+            <p>Minimum Order: Based on shape and size.</p>
+            <p>© 2026 Steel Auto Industries</p>
+        </div>
+    </div>
+</footer>
+
+<div id="product-detail-view">
+    <div class="detail-content">
+        <button class="back-btn" onclick="hideProduct()">← BACK TO PRODUCTS</button>
+        <h1 id="detail-title"></h1>
+        <div id="detail-body"></div>
+        
+        <div class="contact-box">
+            <h4>Quick Inquiry</h4>
+            <p>Call us at: <a href="tel:9871964555" style="color:var(--primary); font-size: 1.2rem; font-weight: bold;">9871964555</a></p>
+            <p>Email: <strong>steelautoindustries@gmail.com</strong></p>
+            <p><small>*MOQ is determined based on the specific shape and size requested.</small></p>
+        </div>
+    </div>
+</div>
+
+<script>
+    const productData = {
+        'Round': `
+            <p>Precision-engineered Round sections for critical automotive and industrial components.</p>
+            <table>
+                <tr><td>Diameter Range</td><td>10mm to 50mm</td></tr>
+                <tr><td>Material Grades</td><td>MS, EN8D, Alloy Steel</td></tr>
+            </table>`,
+        'Hex': `<p>High-grade Hexagonal sections ideal for fastener manufacturing and mechanical parts.</p>`,
+        'Square': `<p>Uniform Square sections for structural frameworks and heavy machinery assembly.</p>`,
+        'Wire': `<p>Custom-gauge industrial wires for springs, construction, and specialized binding.</p>`,
+        'Flat': `<p>Durable Flat sections for brackets, support plates, and engineering applications.</p>`,
+        'Special Section': `<p>Specialized custom profiles tailored to your technical drawings and blueprints.</p>`
+    };
+
+    function showProduct(name) {
+        document.getElementById('detail-title').innerText = name + " Section";
+        document.getElementById('detail-body').innerHTML = productData[name];
+        document.getElementById('product-detail-view').classList.add('active');
+        document.body.style.overflow = 'hidden'; 
+    }
+
+    function hideProduct() {
+        document.getElementById('product-detail-view').classList.remove('active');
+        document.body.style.overflow = 'auto'; 
+    }
+</script>
+
+</body>
+</html>
